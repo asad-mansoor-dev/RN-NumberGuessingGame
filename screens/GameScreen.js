@@ -1,5 +1,6 @@
 import { View, StyleSheet, Alert } from "react-native";
 import { useEffect, useState } from "react";
+import { Ionicons } from "@expo/vector-icons";
 
 import Title from "../components/ui/Title";
 import NumberContainer from "../components/game/NumberContainer";
@@ -64,13 +65,19 @@ function GameScreen({ userNumber, onGameOver }) {
         </InstructionText>
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={nextRndNumber.bind(this, "lower")}>
-              -
+            <PrimaryButton
+              onPress={nextRndNumber.bind(this, "lower")}
+              style={styles.primaryButton}
+            >
+              <Ionicons name="md-remove" size={24} color="white" />
             </PrimaryButton>
           </View>
           <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={nextRndNumber.bind(this, "greater")}>
-              +
+            <PrimaryButton
+              onPress={nextRndNumber.bind(this, "greater")}
+              style={styles.primaryButton}
+            >
+              <Ionicons name="md-add" size={24} color="white" />
             </PrimaryButton>
           </View>
         </View>
@@ -94,5 +101,8 @@ const styles = StyleSheet.create({
   },
   buttonConatiner: {
     flex: 1,
+  },
+  primaryButton: {
+    paddingHorizontal: 12,
   },
 });
