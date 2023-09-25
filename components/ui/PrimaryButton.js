@@ -1,4 +1,4 @@
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet, Dimensions } from "react-native";
 
 import Colors from "../../constants/Colors";
 
@@ -22,6 +22,8 @@ function PrimaryButton({ children, onPress, style }) {
 
 export default PrimaryButton;
 
+const deviceWidth = Dimensions.get("window").width;
+
 const styles = StyleSheet.create({
   buttonOuterContainer: {
     borderRadius: 28,
@@ -37,6 +39,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "white",
     textAlign: "center",
+    fontSize: deviceWidth <= 320 ? 10 : 16,
   },
   buttonPressed: {
     opacity: 0.75,
